@@ -18,6 +18,7 @@ pipeline {
             agent {
                 label 'javanode1'
             }
+            when { branch "master" }
             steps {
                 script {
                     app = docker.build(DOCKER_IMAGE_NAME)

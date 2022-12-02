@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'Jenkins-Java-BuildServer'
+        label 'javanode1'
     }
     environment {
         //be sure to replace "bhavukm" with your own Docker Hub username
@@ -25,9 +25,6 @@ pipeline {
             }
         }
         stage('Push Docker Image') {
-            when {
-                branch 'master'
-            }
             steps {
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login') {

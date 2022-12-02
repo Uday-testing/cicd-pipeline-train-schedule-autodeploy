@@ -15,6 +15,9 @@ pipeline {
             }
         }
         stage('Build Docker Image') {
+            agent {
+                label 'javanode1'
+            }
             steps {
                 script {
                     app = docker.build(DOCKER_IMAGE_NAME)

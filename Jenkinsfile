@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        label 'javanode1'
+    }
     environment {
         //be sure to replace "bhavukm" with your own Docker Hub username
         DOCKER_IMAGE_NAME = "uday987/train-schedule"
@@ -14,6 +16,7 @@ pipeline {
         }
         stage('Build Docker Image') {
             when {
+                beforeAgent true
                 branch 'master'
             }
             steps {

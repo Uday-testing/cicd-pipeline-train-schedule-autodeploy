@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Build Docker Image') {
             when {
-                branch 'master'
+                   environment(name: "DOCKER_IMAGE_NAME", value: "uday987/train-schedule")
             }
             steps {
                 script {
